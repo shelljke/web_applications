@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<title>rectExample</title>
+<meta charset='utf-8' />
+</head>
+<body>
+<div class="CanvasContainer">
+<canvas id='example' </canvas>
+</div>
+<script>
+var sk_r0=0,  sk_g0=0,  sk_b0=102,   sk_r1=102, sk_g1=102, sk_b1=163;
+var se_r0=81, se_g0=94, se_b0=133,   se_r1=0,   se_g1=32,  se_b1=129; 
+var i=0;	
+var x=100, y=35, x1=100;
+var deg=0;
+var dd=-Math.PI;
+var example = document.getElementById("example"),
+ctx     = example.getContext('2d');
+example.height = 600;
+example.width  = 800;
+
+window.onload =function sdaf ()	
+{           
+	draw();  	
+}
+function draw ()
+{
+
+	
+	var sky = ctx.createLinearGradient(0, 0, 0, 300);
+	sky.addColorStop(0, "rgb("+sk_r0+","+sk_g0+","+sk_b0+")");
+	sky.addColorStop(1, "rgb("+sk_r1+","+sk_g1+","+sk_b1+")");
+	ctx.fillStyle = sky;
+	ctx.fillRect(0, 0, 800, 300);
+	
+	var sea = ctx.createLinearGradient(400, 300, 400, 600);
+	sea.addColorStop(0, "rgb("+se_r0+","+se_g0+","+se_b0+")");
+	sea.addColorStop(1, "rgb("+se_r1+","+se_g1+","+se_b1+")");
+	ctx.fillStyle = sea;
+	ctx.fillRect(0, 300, 800, 600);
+	
+
+	if (dd<=Math.PI/2)
+{
+	dd+=0.195;}
+
+	deg+=Math.PI/(28*Math.sin(Math.abs(dd)));
+	ctx.beginPath();
+    ctx.arc(x, 300+y, 50, -Math.PI/2+deg, -Math.PI/2-deg, true);
+    ctx.fillStyle = "rgb(255, 255, 153)";
+    ctx.fill();
+	
+	ctx.beginPath();
+    ctx.arc(x1, 300-y, 50, Math.PI/2-deg, Math.PI/2+deg, false);
+    ctx.fillStyle = "rgb(220, 254, 190)";
+    ctx.fill();
+
+
+	sk_r0+=1;
+	sk_g0+=4;
+	sk_b0+=3;
+
+	sk_r1+=2;
+	sk_g1+=3;
+	sk_b1+=2;
+	
+	x+=4;
+	y-=6;
+	x1+=4;
+
+	se_r0+=2;
+	se_g0+=3;
+	se_b0+=2;
+
+	se_r1+=0;
+	se_g1+=3;
+	se_b1+=2;
+	i++;
+	if( i<=41) {setTimeout("draw()", 40);}					
+};				
+</script>
+</body>
+</html>
