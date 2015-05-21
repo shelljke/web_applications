@@ -1,0 +1,46 @@
+﻿header {
+ font: 30pt sans-serif; 
+text-shadow:  pink 0 0 5px,pink 0 0 5px,pink 0 0 5px; 
+    color: blue;
+}
+
+nav {
+    color: aquamarine;
+}
+
+ li{
+
+	display:inline
+	}
+a{
+color:rgb(0, 255, 255);
+	padding:0px 20px;
+	 font: 12pt sans-serif; 
+	 
+text-shadow:  black 0 0 5px,black 0 0 5px, black 0 0 5px; 
+}
+
+li a.active{
+color:rgb(0, 255, 0);
+	 font: 20pt sans-serif; 
+	 text-shadow:  black 0 0 5px, black 0 0 5px, black 0 0 5px;
+}
+
+article {
+text-shadow:  black 0 0 5px, black 0 0 5px, black 0 0 5px;
+    color: bisque;
+}
+
+text {
+
+    color: pink;
+}
+
+aside {
+    color: gray;
+}
+
+body 
+{
+background-image:url(images/vyrvi_glaz.jpg);
+}
