@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<title>rectExample</title>
+<meta charset='utf-8' />
+</head>
+<body>
+<div class="CanvasContainer">
+<canvas id='example' </canvas>
+</div>
+<input type='button' font="90px" style="width:200px;height:200px" value='СТАРТ' onclick='start()' />
+<td style="width: 200px; vertical-align: top; text-align: center;">
+                        <h2>Регистрация игроков</h2> <br/><br />
+                        <b>Имя:  </b><input style="width: 130px;" type="text" id="NamePl" size="10" /><br /><br />
+                        <input type="button" name="btaddplayer" value="Добавить игрока" onclick="AddPlayer();" />
+                    </td>
+					
+					<td style="width: 250px; vertical-align: top; text-align: center;">
+                        <h2>Ставки</h2>
+                        <b>Игрок:  </b>
+                        <select style="width: 170px;" id="PlyerSelect" name="PlyerSelect"></select>
+                        <p>
+                            <b>Номер дорожки:</b>
+                            <br /><input type="radio" name="nomer" id="1nomer" value="1"> №1 <br>
+                            <input type="radio" name="nomer" id="2nomer" value="2"> №2 <br>
+                            <input type="radio" name="nomer" id="3nomer" value="3"> №3 <br>
+                        </p>
+                        <b>Сумма:  </b><input style="width: 130px;" type="text" id="Cash" size="10" /><b> $</b><br /><br />
+                        <input type="button" name="btaddcash" value="Сделать ставку" onclick="AddCash();" />
+                    </td>
+<script>
+
+var example = document.getElementById("example"),
+ctx     = example.getContext('2d');
+example.height = 480;
+example.width  = 1200;
+var x1=0,x2=0,x3=0,x4=0;
+var p=0,p1=0,p2=0,p3=0,p4=0, fix=0;
+var trashpic= new Image ();
+trashpic.src="trash.png";
+
+var cockroach1= new Image ();
+cockroach1.src="cockroach.png";
+
+var cockroach2= new Image ();
+cockroach2.src="cockroach.png";
+
+var cockroach3= new Image ();
+cockroach3.src="cockroach.png";
+
+var cockroach4= new Image ();
+cockroach4.src="cockroach.png";
+
+window.onload=function ()
+{
+	ctx.fillStyle = "rgb(255, 194, 133)";	
+	ctx.fillRect(0, 0, 1200, 635);
+	ctx.fillStyle = "rgb(0, 0, 0)";	
+	ctx.fillRect(0, 118, 1100, 4);
+	ctx.fillRect(0, 238, 1100, 4);
+	ctx.fillRect(0, 358, 1100, 4);
+	ctx.drawImage(trashpic, 1034, 0); 
+	ctx.drawImage(cockroach1, x1, 5);
+	ctx.drawImage(cockroach2, x2, 123);
+	ctx.drawImage(cockroach3, x3, 245);
+	ctx.drawImage(cockroach4, x4, 366);	
+}
+function start()		
+{     
+	x1=0,x2=0,x3=0,x4=0;
+	p=0,p1=0,p2=0,p3=0,p4=0,fix1=0,fix2=0,fix3=0,fix4=0;
+	ctx.font = "italic 50pt Arial"; 	
+	animation ();
+	
+}
+function animation ()
+{
+
+	ctx.fillStyle = "rgb(255, 194, 133)";	
+	ctx.fillRect(0, 0, 1200, 635);
+	ctx.fillStyle = "rgb(0, 0, 0)";	
+	ctx.fillRect(0, 118, 1100, 4);
+	ctx.fillRect(0, 238, 1100, 4);
+	ctx.fillRect(0, 358, 1100, 4);
+	ctx.drawImage(trashpic, 1034, 0); 
+	ctx.drawImage(cockroach1, x1, 5);
+	ctx.drawImage(cockroach2, x2, 123);
+	ctx.drawImage(cockroach3, x3, 245);
+	ctx.drawImage(cockroach4, x4, 366);	
+
+	if (x1<=1024)
+	{
+		x1+=	getRandomInt(1, 5);	
+	} else if (p1==0) 
+	{
+		p1=p;
+		p++;
+	}else if (p1!=0){ctx.fillText(p1,10,110); fix1=1;}
+
+	if (x2<=1024)
+	{
+		x2+=	getRandomInt(1, 5);	
+	} else if (p2==0)
+	{
+		p2=p;
+		p++;
+	}else if (p2!=0){ctx.fillText(p2,10,230);fix2=1;}
+
+	if (x3<=1024)
+	{
+		x3+=	getRandomInt(1, 5);	
+	} else if (p3==0)
+	{
+		p3=p;
+		p++;
+	}else if (p3!=0){ctx.fillText(p3,10,350);fix3=1;}
+
+	if (x4<=1024)
+	{
+		x4+=	getRandomInt(1, 5);	
+	} else if (p4==0)
+	{
+		p4=p;
+		p++;
+	}else if (p4!=0){ctx.fillText(p4,10,470);fix4=1;}
+
+	if (fix1==1&&fix2==1&&fix3==1&&fix4==1)
+	{
+	return p1,p2,p3,p4;
+} else setTimeout("animation()", 7);
+
+};
+function getRandomInt(min, max)
+{
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+</script>
+</body>
+</html>

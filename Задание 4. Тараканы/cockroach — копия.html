@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<title>rectExample</title>
+<meta charset='utf-8' />
+</head>
+<body>
+<div class="CanvasContainer">
+<canvas id='example' </canvas>
+</div>
+<script>
+
+var example = document.getElementById("example"),
+ctx     = example.getContext('2d');
+example.height = 480;
+example.width  = 1200;
+var x1=0,x2=0,x3=0,x4=0;
+var p=0,p1=0,p2=0,p3=0,p4=0;
+var trashpic= new Image ();
+trashpic.src="trash.png";
+
+var cockroach1= new Image ();
+cockroach1.src="cockroach.png";
+
+var cockroach2= new Image ();
+cockroach2.src="cockroach.png";
+
+var cockroach3= new Image ();
+cockroach3.src="cockroach.png";
+
+var cockroach4= new Image ();
+cockroach4.src="cockroach.png";
+
+window.onload =function()	
+{         
+	ctx.font = "italic 50pt Arial";
+	if ()
+	setTimeout("animation ()", 7);
+}
+function animation ()
+{
+ctx.fillStyle = "rgb(255, 194, 133)";	
+	ctx.fillRect(0, 0, 1200, 635);
+	ctx.fillStyle = "rgb(0, 0, 0)";	
+	ctx.fillRect(0, 118, 1100, 4);
+	ctx.fillRect(0, 238, 1100, 4);
+	ctx.fillRect(0, 358, 1100, 4);
+	ctx.drawImage(trashpic, 1034, 0); 
+ctx.drawImage(cockroach1, x1, 5);
+ctx.drawImage(cockroach2, x2, 123);
+ctx.drawImage(cockroach3, x3, 245);
+ctx.drawImage(cockroach4, x4, 366);	
+
+if (x1<=1024)
+{
+x1+=	getRandomInt(1, 5);	
+} else if (p1==0) 
+{
+p1=p;
+p++;
+}else if (p1!=0){ctx.fillText(p1,10,110);}
+
+if (x2<=1024)
+{
+x2+=	getRandomInt(1, 5);	
+} else if (p2==0)
+{
+p2=p;
+p++;
+}else if (p2!=0){ctx.fillText(p2,10,230);}
+
+if (x3<=1024)
+{
+x3+=	getRandomInt(1, 5);	
+} else if (p3==0)
+{
+p3=p;
+p++;
+
+}else if (p3!=0){ctx.fillText(p3,10,350);}
+
+if (x4<=1024)
+{
+x4+=	getRandomInt(1, 5);	
+} else if (p4==0)
+{
+p4=p;
+p++;
+}else if (p4!=0){ctx.fillText(p4,10,470);}
+
+return p1, p2, p3, p4;
+};
+	
+function getRandomInt(min, max)
+{
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+			
+</script>
+</body>
+</html>
